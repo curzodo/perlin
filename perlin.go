@@ -3,10 +3,6 @@ package perlin
 import (
 	"math"
 	"math/rand"
-    "image"
-    "image/color"
-    "image/png"
-    "os"
 )
 
 type Generator struct {
