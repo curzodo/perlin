@@ -49,7 +49,7 @@ func (g Generator) Noise3D(x, y, z float64) float64 {
 }
 
 func (g Generator) p(idx int) int {
-    return g.permutations[idx % 255]
+    return g.permutations[idx % 256]
 }
 
 func fade(t float64) float64 {
