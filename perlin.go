@@ -1,9 +1,17 @@
-package main
+package perlin
 
 import (
 	"math"
 	"math/rand"
+    "fmt"
 )
+
+func main() {
+    g := NewGenerator(12345)
+    for i := 0; i < 300; i++ {
+        fmt.Println(i, g.Noise2D((float64(i)+0.01)/10, 0.5))
+    }
+}
 
 type Generator struct {
     permutations []int
@@ -11,7 +19,7 @@ type Generator struct {
 
 func NewGenerator(seed int64) Generator {
     r := rand.New(rand.NewSource(seed))
-    return Generator { r.Perm(256) }
+    return Generator { r.Perm(512) }
 }
 
 func (g Generator) Noise1D(x float64) float64 {
@@ -49,7 +57,7 @@ func (g Generator) Noise3D(x, y, z float64) float64 {
 }
 
 func (g Generator) p(idx int) int {
-    return g.permutations[idx % 256]
+    return g.permutations[idx % 512]
 }
 
 func fade(t float64) float64 {
