@@ -1,4 +1,4 @@
-package perlin
+package main
 
 import (
 	"math"
