@@ -6,13 +6,6 @@ import (
     "fmt"
 )
 
-func main() {
-    g := NewGenerator(12345)
-    for i := 0; i < 300; i++ {
-        fmt.Println(i, g.Noise2D((float64(i)+0.01)/10, 0.5))
-    }
-}
-
 type Generator struct {
     permutations []int
 }
